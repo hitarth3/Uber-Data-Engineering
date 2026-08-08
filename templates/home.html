@@ -3,190 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Uber Real-Time Event Stream Producer</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Ride Booking Home</title>
     <style>
-        :root {
-            --bg: #000000;
-            --surface: #111111;
-            --surface-hover: #1c1c1c;
-            --border: #27272a;
-            --text-primary: #ffffff;
-            --text-secondary: #a1a1aa;
-            --accent: #2563eb;
-            --accent-hover: #1d4ed8;
-            --success: #10b981;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background-color: var(--bg);
-            color: var(--text-primary);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 24px;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
         }
-
-        .card {
-            background-color: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 40px;
-            max-width: 540px;
-            width: 100%;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
-            position: relative;
-            overflow: hidden;
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
-
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #2563eb, #38bdf8, #10b981);
-        }
-
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 4px 12px;
-            border-radius: 9999px;
-            font-size: 12px;
-            font-weight: 500;
-            background-color: rgba(16, 185, 129, 0.1);
-            color: var(--success);
-            border: 1px solid rgba(16, 185, 129, 0.2);
-            margin-bottom: 20px;
-        }
-
-        .badge-dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background-color: var(--success);
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.4; transform: scale(1.2); }
-        }
-
         h1 {
-            font-size: 26px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            margin-bottom: 12px;
+            color: #333;
         }
-
         p {
-            color: var(--text-secondary);
-            font-size: 14px;
-            line-height: 1.6;
-            margin-bottom: 28px;
+            color: #666;
         }
-
-        .features {
-            background-color: rgba(255, 255, 255, 0.02);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 16px 20px;
-            margin-bottom: 28px;
-        }
-
-        .feature-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 13px;
-            color: var(--text-secondary);
-            margin-bottom: 8px;
-        }
-
-        .feature-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .feature-icon {
-            color: #38bdf8;
-        }
-
-        .btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            width: 100%;
-            padding: 14px 20px;
-            background-color: var(--text-primary);
-            color: #000000;
-            font-size: 15px;
-            font-weight: 600;
-            text-decoration: none;
-            border-radius: 10px;
-            transition: all 0.2s ease;
-            cursor: pointer;
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #007BFF;
             border: none;
+            border-radius: 5px;
+            text-decoration: none;
         }
-
-        .btn:hover {
-            background-color: #e4e4e7;
-            transform: translateY(-1px);
-        }
-
-        .footer-text {
-            text-align: center;
-            font-size: 12px;
-            color: #71717a;
-            margin-top: 20px;
+        .button:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
-    <div class="card">
-        <div class="badge">
-            <span class="badge-dot"></span>
-            Streaming Producer Ready
-        </div>
-        <h1>Uber Real-Time Event Stream</h1>
-        <p>Trigger synthetic ride bookings with rich schemas (fare breakdowns, dimensional foreign keys, geospatial metadata) to stream real-time events directly into Azure Event Hubs.</p>
-        
-        <div class="features">
-            <div class="feature-item">
-                <span class="feature-icon">⚡</span>
-                <span>Produces real-time JSON payloads to Azure Event Hubs</span>
-            </div>
-            <div class="feature-item">
-                <span class="feature-icon">📊</span>
-                <span>Enriched with Faker GPS coordinates, fares, and user IDs</span>
-            </div>
-            <div class="feature-item">
-                <span class="feature-icon">🔄</span>
-                <span>Feeds into ADLS Gen2 & Medallion Lakehouse pipeline</span>
-            </div>
-        </div>
-
-        <a href="/book" class="btn">
-            Generate & Stream Ride Event →
-        </a>
-
-        <div class="footer-text">
-            Uber Lakehouse Architecture • Data Engineering Pipeline
-        </div>
+    <div class="container">
+        <h1>Welcome to the Ride Booking Service</h1>
+        <p>Book your ride with us and enjoy a seamless experience!</p>
+        <a href="/book" class="button">Book a Ride</a>
     </div>
 </body>
 </html>
