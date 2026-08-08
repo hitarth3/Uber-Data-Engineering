@@ -1,13 +1,12 @@
+"""
+Synthetic Uber Ride Data Generator Module.
+Generates realistic ride event payloads with dimensional keys, pricing measures, and geospatial attributes.
+"""
+
 import random
 import uuid
-import json
 from datetime import datetime, timedelta
 from faker import Faker
-from azure.eventhub import EventHubProducerClient, EventData
-import logging
-from dotenv import load_dotenv
-load_dotenv()  # Load environment variables from .env file
-import os
 
 fake = Faker()
 
